@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+long long maxSubarraySum(int arr[], int n)
+    {
+        // Your code here
+        int maxsum = arr[0];
+        int sum = arr[0];
+ 
+        for (int i = 1; i < n; i++)
+       {
+            sum= max(arr[i], sum+arr[i]);
+            maxsum = max(maxsum, sum);
+       }
+    return maxsum;
+    }
+
+int main()
+{
+  int arr[] = {-2, -3, 4, -1, -2, 1, 5, -3};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  int max_sum = maxSubArraySum(arr, n);
+  cout << "Maximum contiguous sum is " << max_sum;
+  return 0;
+}
